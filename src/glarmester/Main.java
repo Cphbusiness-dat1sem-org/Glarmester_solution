@@ -1,6 +1,6 @@
-package glarmester_solution;
+package glarmester;
 
-import glarmester_solution.logic.Controller;
+import glarmester.presentation.GUI;
 
 /**
  *
@@ -9,6 +9,6 @@ import glarmester_solution.logic.Controller;
 public class Main {
     
     public static void main(String[] args) {
-        new Controller().go();
+        new GUI().setVisible(true);
     }
 }
