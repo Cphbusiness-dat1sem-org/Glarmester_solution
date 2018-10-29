@@ -4,11 +4,11 @@ public class DataException extends Exception {
 
     public DataException() {
     }
-    public DataException(String string) {
-        super(string);
+    public DataException(String msg) {
+        super(msg);
     }
-    public DataException(String string, Throwable thrwbl) {
-        super(string, thrwbl);
+    public DataException(String msg, Throwable thrwbl) {
+        super(msg, thrwbl);
     }
     public DataException(Throwable thrwbl) {
         super(thrwbl);
