@@ -3,7 +3,7 @@ package glarmester.presentation;
 import glarmester.data.DataAccessor;
 import glarmester.data.DataAccessorHardCodedValues;
 import glarmester.logic.Controller;
-import glarmester.logic.Controller_Impl;
+import glarmester.logic.ControllerImpl;
 import glarmester.logic.PriceCalculator;
 import java.util.List;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class TUI {
     public TUI(){
         DataAccessor data = new DataAccessorHardCodedValues();
         PriceCalculator logic = new PriceCalculator();
-        c = new Controller_Impl(data, logic);
+        c = new ControllerImpl(data, logic);
     }
     
     public static void main(String[] args) {

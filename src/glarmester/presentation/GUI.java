@@ -1,9 +1,8 @@
 package glarmester.presentation;
 
 import glarmester.Main;
-import glarmester.data.DataAccessorDatabase;
 import glarmester.data.DataAccessorHardCodedValues;
-import glarmester.logic.Controller_Impl;
+import glarmester.logic.ControllerImpl;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +25,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
 
-        facade = new Controller_Impl(new DataAccessorHardCodedValues(), new PriceCalculator());
+        facade = new ControllerImpl(new DataAccessorHardCodedValues(), new PriceCalculator());
 
         pnl_total.setVisible(false);
         jButton1.setBackground(new Color(0x4C, 0xAF, 0x50));
