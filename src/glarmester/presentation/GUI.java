@@ -12,46 +12,36 @@ import javax.swing.BoxLayout;
 import javax.swing.JRadioButton;
 import glarmester.logic.Controller;
 import glarmester.logic.PriceCalculator;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonModel;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author RODA
  */
 public class GUI extends javax.swing.JFrame {
-    private Controller facade;
-    private ArrayList<JRadioButton> buttons = new ArrayList<>();
+    private Controller controller;
     private String selectedFrameName = null;
     
     public GUI() {
         initComponents();
-
-        facade = new ControllerImpl(new DataAccessorHardCodedValues(), new PriceCalculator());
+        controller = new ControllerImpl(new DataAccessorHardCodedValues(), new PriceCalculator());
 
         pnl_total.setVisible(false);
         jButton1.setBackground(new Color(0x4C, 0xAF, 0x50));
         jButton1.setForeground(Color.white);
         
-        List<String> frameNames = facade.getFrameNames();
+        List<String> frameNames = controller.getFrameNames();
         pnl_frames.setLayout(new BoxLayout(pnl_frames, BoxLayout.Y_AXIS));
         for(String frameName : frameNames) {
             JRadioButton btn = new JRadioButton(frameName);
-            buttons.add(btn);
+            btnGrp.add(btn);
             pnl_frames.add(btn);
-            if(selectedFrameName == null){
-                selectedFrameName = frameName;
-                btn.setSelected(true);
-            }
-            btn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    for(JRadioButton b : buttons){
-                        b.setSelected(false);
-                    }
-                    btn.setSelected(true);
-                    selectedFrameName = frameName;
-                }
-            });
         }
+        JRadioButton selected = (JRadioButton) btnGrp.getElements().nextElement();
+        selectedFrameName = selected.getText();
+                
         pnl_frames.setVisible(true);
     }
 
@@ -65,6 +55,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
+        btnGrp = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -422,7 +413,7 @@ public class GUI extends javax.swing.JFrame {
             return;
         }
             
-        double price = facade.getTotalPrice(height_cm, width_cm, selectedFrameName);
+        double price = controller.getTotalPrice(height_cm, width_cm, selectedFrameName);
         tf_totalPrice.setText(String.format("%.2f", price));
         pnl_total.setVisible(true);
     }//GEN-LAST:event_onButtonPressed
@@ -475,6 +466,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGrp;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

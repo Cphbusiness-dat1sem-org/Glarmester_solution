@@ -45,20 +45,13 @@ public class ControllerTest {
         assertEquals(expected, actual, 0.1);
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void negativTestTotalPrice(){
-        double expected, actual;
-
-        try{
-            c.getTotalPrice(0, 100, "ornate");
-            c.getTotalPrice(0, 0, "plain");
-            c.getTotalPrice(-100, 100, "plain");
-            c.getTotalPrice(160, 100, null);
-            c.getTotalPrice(160, 100, "");
-            c.getTotalPrice(160, 100, "Rainbow");
-            fail();
-        } catch(IllegalArgumentException e){
-            // Expected
-        }
+        c.getTotalPrice(0, 100, "ornate");
+        c.getTotalPrice(0, 0, "plain");
+        c.getTotalPrice(-100, 100, "plain");
+        c.getTotalPrice(160, 100, null);
+        c.getTotalPrice(160, 100, "");
+        c.getTotalPrice(160, 100, "Rainbow");
     }
 }
