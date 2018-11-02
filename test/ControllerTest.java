@@ -1,6 +1,6 @@
 import glarmester.data.DataAccessorDatabase;
 import glarmester.logic.Controller;
-import glarmester.logic.Controller_Impl;
+import glarmester.logic.ControllerImpl;
 import glarmester.logic.PriceCalculator;
 import java.util.List;
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class ControllerTest {
     private Controller c;
     
     public ControllerTest() {
-        c = new Controller_Impl(new DataAccessorDatabase(), new PriceCalculator());
+        c = new ControllerImpl(new DataAccessorDatabase(), new PriceCalculator());
     }
     
     @Test
