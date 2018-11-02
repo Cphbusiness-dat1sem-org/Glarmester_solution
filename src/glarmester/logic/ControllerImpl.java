@@ -12,7 +12,6 @@ import java.util.List;
  */
 public class ControllerImpl implements Controller {
     public static final boolean DEBUG = true;
-//    private DataAccessor data = new DataAccessorFile();
     private DataAccessor data;
     private PriceCalculator logic;
 
