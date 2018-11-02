@@ -47,6 +47,7 @@ public class DataAccessorTest {
         da.getFrame("NapoleonBonaparte");
         da.getFrame("");
         da.getFrame(null);
+        da.getFrame("Plain");
     }
     
     @Test
